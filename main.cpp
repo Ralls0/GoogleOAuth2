@@ -4,16 +4,15 @@
 
 #include "./OAuth/OAuth.h"
 
-int main (int argc, char *argv[]) {
-    QApplication a(argc, argv);
+int main(int argc, char *argv[]) {
+  QApplication a(argc, argv);
 
-    QString filename = QDir::currentPath()+"/client_setup.json";
-    QString scope = "https://www.googleapis.com/auth/calendar";// https://www.googleapis.com/auth/userinfo.email";
+  QString filename = QDir::currentPath() + "/client_setup.json";
+  QString scope = "https://www.googleapis.com/auth/calendar";
 
-    std::cout<<"Create obj\n";
-    OAuth au(filename, scope);
-    std::cout<<au.toString().toStdString()<<"\n";
-    au.startAuth();
+  OAuth au(filename, scope);
+  std::cout << au.toString().toStdString() << "\n";
+  au.startAuth();
 
-    return QApplication::exec();
+  return QApplication::exec();
 }
